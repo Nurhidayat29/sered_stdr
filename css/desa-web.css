@@ -1,0 +1,23 @@
+/*
+ * File ini berisi CSS ubahan desa untuk tema 'sered_stdr' buatan parso, anggota OpenDesa nomor 330408 0001 dari Banjarnegara
+ * CSS ini memakai image:
+ *     - latar belakang body yang ditempatkan di desa/themes/sered_stdr/css/images/img1.jpg
+ *     - dan latar belakang header yang ditempatkan di desa/themes/sered_stdr/css/images/bg_header.png
+ *
+ * desa-web.css ini berisi perubahan untuk styles yang ada di desa/themes/sered_stdr/css/first.css
+ 
+*/
+
+body{
+  background: url(images/img1.jpg) no-repeat center center fixed;; /*warna background bodi web*/
+}
+
+#topsection{
+  background: url(images/bg_header.png);
+}
+
+/* Untuk menyembunyikan tampilan transparansi, ubah display: block menjadi display: none;. */
+
+#transparansi-footer{
+  display: block;
+}
