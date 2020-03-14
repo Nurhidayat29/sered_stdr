@@ -32,11 +32,12 @@
 <!--
  List Konten
 -->
-<?php $title = (!empty($judul_kategori))? $judul_kategori : "Artikel Terkini" ?>
+
+<?php $title = (!empty($judul_kategori))? $judul_kategori : "ARTIKEL TERKINI" ?>
 
 <?php if (is_array($title)): ?>
 	<?php foreach ($title as $item): ?>
-		<?php $title= $item ?>
+		<?php $title= $item ?>	
 	<?php endforeach; ?>
 <?php endif; ?>
 
@@ -46,7 +47,7 @@
 	</div>
 	<div class="box-body">
 
-		<?php if ($artikel): ?>
+		<?php if ($artikel): ?>		
 			<div>
 				<ul class="artikel-list artikel-list-in-box">
 					<?php foreach ($artikel as $data): ?>
@@ -55,13 +56,16 @@
 							<h3 class="judul">
 								<a href="<?= site_url('first/artikel/'.$data['thn'].'/'.$data['bln'].'/'.$data['hri'].'/'.$data['slug']) ?>"><?= $data["judul"] ?></a>
 							</h3>
-
 							<div class="teks">
 								<div class="kecil">
-									<i class="fa fa-clock-o"></i> <?= tgl_indo2($data['tgl_upload']) ?>
-									<i class="fa fa-user"></i> <?= $data['owner'] ?>
+									<i class="fa fa-user"></i> <?= $data['owner'] ?> |
+									<i class="fa fa-clock-o"></i> <?= tgl_indo2($data['tgl_upload']) ?> |
+									<a><i class="fa fa-eye"> </i>
+		                            <?php $baca = $this->db->query("SELECT * FROM artikel_baca WHERE id_artikel = '".$data['id']."'"); $row = $baca->row_array();
+		                            if ($row['dibaca'] >= 1){ echo number_format($row['dibaca'],0,',','.')." kali"; }
+		                            else if ($row['dibaca'] == 0){ echo "0 kali"; } ?></a> |
 									<?php if (trim($data['kategori']) != ''): ?>
-										<i class='fa fa-tag'></i> <a href="<?= site_url('first/kategori/'.$data['id_kategori']) ?>"><?= $data['kategori'] ?></a>
+									<i class='fa fa-tag'></i> <a href="<?= site_url('first/kategori/'.$data['id_kategori']) ?>"><?= $data['kategori'] ?></a>
 									<?php endif; ?>
 								</div>
 								<div class="img">

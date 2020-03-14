@@ -9,10 +9,10 @@
 */
 
 a, a:active {
-	color: #006400;
+	color: red;
 }
 a:visited {
-	color: #0000FF;
+	color: blue;
 }
 a:hover {
 	color: #fd0315;
@@ -127,7 +127,7 @@ body{
   font-size:12px;color: #fff;
   font-weight: normal;
   padding: 20px;
-  width: 60%;
+  width: 50%;
   float: center;
   background-color: gb;
 }
@@ -345,8 +345,8 @@ body {
 	float: left;
 	max-width: 292px;
 	position: left;
-	background:#ccc;
-	border:solid 1px #aaa;
+	background:none;
+	border:solid 0px none;
 	padding:.3em;
 	}		
 
@@ -402,15 +402,21 @@ body {
 }
 
 .artikel .kecil{
-	font-size:11px;
+	font-size:12px;
 	font-family: calibri;
-	color: #696969;
+	color: #228B22;
 	font-style:normal;
 	text-align: center;
 	margin-top: 1px;
 	margin-bottom: 15px;
-	background-color: #DCDCDC;
+	background-color: #98FB98;
+	
 }
+
+.post_commentbox span{
+	color:#798992; 
+	font-size:11px; 
+	margin-right:5px}
 
 a {
     color: red;
@@ -469,7 +475,7 @@ h4 {
 /* mengubah font judul web ( desa ) */
 #siteTitle h1{
 	font-family: "Arial", sans-serif;
-    font-size: 195%;
+    font-size: 236%;
     color: white; /* #0c83c5; */
     margin-top: 4px;
 	margin-left: 0px;
@@ -554,8 +560,8 @@ font-family: "Arial", sans-serif;
   text-align:left;}
   
 #divlogo-img img{
-	height:97px;
-	margin-top:-18px;
+	height:130px;
+	margin-top:-40px;
 	margin-left: -10px;
 	
 }
@@ -776,7 +782,7 @@ nav.navbar.navbar-inverse{
 .time {
 	background: red;
     padding: 4px 10px;
-	margin-top: 155px;
+	margin-top: 172px;
     margin-left: -420px;
 	margin-bottom: 0px;
 	color: white;
@@ -886,7 +892,7 @@ table.counter tr td {
 #arsip_artikel .tab-content {margin-top: 10px; margin-left:0px;}
 #arsip_artikel .nav > li > a {padding: 5px 8px;}
 
-span.meta_date, span.meta_comment, span.meta_more{display:inline-block; margin-right:8px; color:#aaa; font-size:11px; line-height:14px;}
+span.meta_date, span.meta_comment, span.meta_more{display:inline-block; margin-right:8px; color:#FF8C00; font-size:11px; line-height:14px;}
 span.meta_date:before{content:" "; font-family:FontAwesome; font-style:normal; font-weight:normal; padding-right:4px; text-decoration:inherit}
 span.meta_date:hover, span.meta_comment:hover, span.meta_more:hover, span.meta_comment a:hover, span.meta_more a:hover{color:#e64946}
 .navbar-inverse .navbar-collapse,

@@ -24,7 +24,7 @@
 			<div id="footer-keterangan"><i class="fa fa-bar-chart"></i> Transparansi Anggaran : </div>
 			
 			<div id="footer-apbdesa">
-				<?php $this->load->view($folder_themes. '/partials/apbdesa-tema.php', $transparansi);?>
+				<?php $this->load->view($folder_themes. '/partials/apbdesa.bar.php', $transparansi);?>
 				<?php $this->load->view($folder_themes. '/partials/copywright.tpl.php');?>
 			</div>	
 			<footer id="tombol-ke-atas">

@@ -1099,7 +1099,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #228B22;
   text-decoration: none;
 }
 a:hover,
@@ -1303,6 +1303,7 @@ h6,
 small,
 .small {
   font-size: 85%;
+  
 }
 mark,
 .mark {
@@ -4039,9 +4040,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555;
+  color: #000000;
   cursor: default;
-  background-color: #fff;
+  background-color: #FFFF00;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }
@@ -4643,7 +4644,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 	font-weight: bold;
 	color: #7FFF00;
     text-transform: none;
-    font-size: 13px;
+    font-size: 12px;
     text-shadow: 0 1px 1px #000;
 }
 .navbar-inverse .navbar-nav > li > a:hover,

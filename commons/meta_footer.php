@@ -3,18 +3,18 @@
 <script type="text/javascript">
     (function () {
         var options = {
-            whatsapp: "+628XXXXXXXXXX",
-            facebook: "akun.fbAnda",
-            telegram: "isi.akun.telegram.anda",
-            email: "isi-email-anda-@gmail.com",
-            //sms: "+628XXXXXXXXXX",
-            call: "+628XXXXXXXXXX",
+            whatsapp: "<?php echo $desa['telepon']?>",
+            facebook: "<?php echo $sosmed[nested_array_search('Facebook',$sosmed)]['link']?>",
+            telegram: "<?php echo $desa['telepon']?>",
+            email: "<?php echo $desa['email_desa']?>",
+            sms: "<?php echo $desa['telepon']?>",
+            call: "<?php echo $desa['telepon']?>",
             company_logo_url: "<?= LogoDesa($desa['logo']);?>", // URL of company logo (png, jpg, gif)
-            greeting_message: "Selamat Datang di Kontak Layanan Komunikasi <?= ucwords($this->setting->sebutan_desa).' '.$desa['nama_desa'];?>.",
-            call_to_action: "Kontak Admin",
+            greeting_message: "Selamat datang di layanan komunikasi Pemerintah <?= ucwords($this->setting->sebutan_desa).' '.$desa['nama_desa'];?>.",
+            call_to_action: "Kontak Admin & Medsos <?= ucwords($this->setting->sebutan_desa).' '.$desa['nama_desa'];?>.",
             button_color: "#e64946",
             position: "left", // Position may be 'right' or 'left'
-            order: "whatsapp,facebook,telegram,email" // Order of buttons
+            order: "whatsapp,facebook,telegram,email,sms" // Order of buttons
         };
         
         var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;

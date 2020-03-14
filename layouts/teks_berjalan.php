@@ -15,7 +15,7 @@
 	$(document).ready(function() {
     $('#scroller').cycle({
 			fx: 'carousel',
-			speed: 20000,
+			speed: 35000,
 			timeout: '20',
 			easing: 'linear',
 			pauseOnHover: true,

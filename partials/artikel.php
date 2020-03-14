@@ -1,27 +1,34 @@
 <?php  if(!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
+<?php $baca = $this->db->query("SELECT dibaca FROM artikel_baca WHERE id_artikel = '".$single_artikel['id']."'"); $row = $baca->row_array();
+if ($row['dibaca'] >= 1){ $this->db->query("UPDATE artikel_baca SET waktu = NOW(), dibaca = ".$row['dibaca']."+1 WHERE id_artikel ='".$single_artikel['id']."' "); }
+else if ($row['dibaca'] == 0){ $this->db->query("INSERT INTO artikel_baca (id, id_artikel, dibaca, waktu) VALUES ('', '".$single_artikel['id']."', '1', NOW())"); } ?>
+
+
 <?php if($single_artikel["id"]) : ?>
 	<div class="artikel" id="<?= 'artikel-'.$single_artikel['judul']?>">
 		<h2 class="judul"><?= $single_artikel["judul"]?></h2>
 		<h3 class="kecil">
-			<i class="fa fa-user"></i> <?= $single_artikel['owner']?>
-			<i class="fa fa-clock-o"></i><?= tgl_indo2($single_artikel['tgl_upload']);?>
-			<?php if (trim($single_artikel['kategori']) != '') : ?>
+			<i class="fa fa-user"></i> <?=  $single_artikel ['owner']?>
+			| <i class="fa fa-clock-o"></i> <?= tgl_indo2($single_artikel ['tgl_upload']);?>
+			<a>| <i class="fa fa-eye"></i> <?php $baca2 = $this->db->query("SELECT dibaca FROM artikel_baca WHERE id_artikel = '".$single_artikel['id']."'"); $row2 = $baca2->row_array(); echo number_format ($row2 ['dibaca'],0,',','.'). " Kali"; ?></a>
+			|<?php if (trim($single_artikel ['kategori']) != '') : ?>
 				<i class='fa fa-tag'></i> <a href="<?= site_url('first/kategori/'.$single_artikel['id_kategori'])?>"><?= $single_artikel['kategori']?></a>
 			<?php endif; ?>
 		</h3>
-
+		
 		<?php if($single_artikel['gambar']!='' and is_file(LOKASI_FOTO_ARTIKEL."sedang_".$single_artikel['gambar'])): ?>
 			<div class="sampul">
 				<a class="group2" href="<?= AmbilFotoArtikel($single_artikel['gambar'],'sedang')?>" title=""><img src="<?= AmbilFotoArtikel($single_artikel['gambar'],'sedang')?>" /></a>
 			</div>
-		<?php endif; ?>
+		<?php endif; ?> 
+		
 		<div class="teks"><?= $single_artikel["isi"]?></div>
 
 		<?php	if($single_artikel['dokumen']!='' and is_file(LOKASI_DOKUMEN.$single_artikel['dokumen'])): ?>
 			<p>Dokumen Lampiran : <a href="<?= base_url().LOKASI_DOKUMEN.$single_artikel['dokumen']?>" title=""><?= $single_artikel['link_dokumen']?></a></p>
 			<br/>
-		<?php endif; ?>
+		<?php endif; ?> 
 		<?php if($single_artikel['gambar1']!='' and is_file(LOKASI_FOTO_ARTIKEL."sedang_".$single_artikel['gambar1'])): ?>
 			<div class="sampul2"><a class="group2" href="<?= AmbilFotoArtikel($single_artikel['gambar1'],'sedang')?>" title=""><img src="<?= AmbilFotoArtikel($single_artikel['gambar1'],'sedang')?>" /></a>
 			</div>
@@ -34,21 +41,33 @@
 			<div class="sampul2"><a class="group2" href="<?= AmbilFotoArtikel($single_artikel['gambar3'],'sedang')?>" title=""><img src="<?= AmbilFotoArtikel($single_artikel['gambar3'],'sedang')?>" /></a>
 			</div>
 		<?php endif; ?>
-		
-		<div class="form-group" style="clear:both;">
-			<ul id="pageshare" title="Bagikan ke teman anda" class="pagination">
-				<li class="sbutton" id="fb"><a name="fb_share" href="https://www.facebook.com/sharer.php?u=<?= site_url().'first/artikel/'.$single_artikel['id']?>" target="_blank"><i class="fa fa-facebook-square"></i>&nbsp;Share</a></li>
-				<li class="sbutton" id="rt"><a href="http://twitter.com/share?url=<?=site_url().'first/artikel/'.$single_artikel['id']?>" class="twitter-share-button" target="_blank"><i class="fa fa-twitter"></i>&nbsp;Tweet</a></li>
-				<li class="sbutton" id="wa_share"><a href="https://api.whatsapp.com/send?text=<?= site_url().'first/artikel/'.$single_artikel['id']?>" target="_blank"><i class="fa fa-whatsapp" style="color:green"></i>&nbsp;WhatsApp</a></li>
-			<li id="pagesprint" title="Cetak seluruh atau sebagian artikel ini" class="pagination">
-				<button onclick="window.print()"><i class="fa fa-print" style="color:blue"></i> Cetak Artikel</button></li>
-			</ul>
-			
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><h4> Share Artikel melalui Medsos Dibawah ini :</h4></p>
+<p>&nbsp;</p>
+
+			<div class="btn-group" role="group" aria-label="Bagikan ke teman anda" style="clear:both;">
+		    <a name="fb_share" href="http://www.facebook.com/sharer.php?u=<?= "https://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]?>" onclick='window.open(this.href,"popupwindow","status=0,height=500,width=500,resizable=0,top=50,left=100");return false;' rel='nofollow' target='_blank' title='Facebook'><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-facebook-square fa-2x"></i></button></a>
+			<a href="http://twitter.com/share?source=sharethiscom&text=<?= $single_artikel["judul"];?>%0A&url=<?= "https://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI].'&via=SeredPemdes'?>" class="twitter-share-button" onclick='window.open(this.href,"popupwindow","status=0,height=500,width=500,resizable=0,top=50,left=100");return false;' rel='nofollow' target='_blank' title='Twitter'><button type="button" class="btn btn-info btn-sm"><i class="fa fa-twitter fa-2x"></i></button></a>
+			<a href="mailto:?subject=<?= $single_artikel["judul"];?>&body=<?= potong_teks($single_artikel["isi"], 1000);?> ... Selengkapnya di <?= "https://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]?>" title='Email'><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-envelope fa-2x"></i></button></a>
+		    <a href="https://telegram.me/share/url?url=<?= "https://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]?>&text=<?= $single_artikel["judul"];?>%0A" onclick='window.open(this.href,"popupwindow","status=0,height=500,width=500,resizable=0,top=50,left=100");return false;' rel='nofollow' target='_blank' title='Telegram'><button type="button" class="btn btn-dark btn-sm"><i class="fa fa-telegram fa-2x"></i></button></a>
+		    <a href="#" onclick="window.print('printableArea')" title='Cetak Artikel'><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-print fa-2x"></i></button></a>
+		    <a href="https://api.whatsapp.com/send?text=<?= $single_artikel["judul"];?>%0A<?= "https://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]?>" onclick='window.open(this.href,"popupwindow","status=0,height=500,width=500,resizable=0,top=50,left=100");return false;' rel='nofollow' target='_blank' title='Whatsapp'><button type="button" class="btn btn-success btn-sm"><i class="fa fa-whatsapp fa-2x"></i></button></a>
+        </div>
+
 			<!--
 			<script src=\"http://static.ak.fbcdn.net/connect.php/js/FB.Share\" type=\"text/javascript\"></script>
 			<script src=\"http://platform.twitter.com/widgets.js\" type=\"text/javascript\"></script>
 			-->
-		</div>
+		
 		<?php if($single_artikel['boleh_komentar']): ?>
 		    <div class="fb-comments" data-href="<?= site_url().'first/artikel/'.$single_artikel['id']?>" width="100%" data-numposts="5"></div>
 		<?php endif; ?>
@@ -74,6 +93,7 @@
 						<?php endforeach; ?>
 					</div>
 				</div>
+		
 			<?php elseif($single_artikel['boleh_komentar']): ?>
 				<div>Silakan tulis komentar dalam formulir berikut ini (Gunakan bahasa yang santun)</div>
 			<?php endif; ?>
