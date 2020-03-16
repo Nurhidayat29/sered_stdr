@@ -1099,7 +1099,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #228B22;
+  color: #337ab7;
   text-decoration: none;
 }
 a:hover,
@@ -1303,7 +1303,6 @@ h6,
 small,
 .small {
   font-size: 85%;
-  
 }
 mark,
 .mark {
@@ -4040,9 +4039,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #000000;
+  color: #555;
   cursor: default;
-  background-color: #FFFF00;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }

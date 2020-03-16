@@ -770,15 +770,15 @@ table.counter tr td img{
 .artikel .teks{font-size:1em;}
 .artikel .sampul{margin: 1em 0; display:block;width:600px;}
 .artikel .sampul img{display:block;width:600px;padding:.5em;background:#ccc;border:solid 1px #aaa;}
-.artikel .sampul2{float:left; position: center; margin: 0.5em 1em 0.5em 0em; width:244px;}
-.artikel .sampul2 img{width:244px;padding:.3em;background:#ccc;border:solid 1px #aaa;}
+.artikel .sampul2{float:left;margin: 0.5em 1em 0.5em 0em; width:280px;}
+.artikel .sampul2 img{width:280px;padding:.3em;background:#ccc;border:solid 1px #aaa;}
 .artikel .teks img
 {
 	margin-right: 10px; margin-bottom: 5px;
 	max-width: 100%;
 	height: auto;
-	background: none;
-	border: solid 1px none;
+	background: #ccc;
+	border: solid 1px #aaa;
 	padding: .5em;
 }
 .artikel .teks ol{margin:0 1em;padding:0 1em;}
